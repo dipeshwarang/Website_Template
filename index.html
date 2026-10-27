@@ -45,52 +45,63 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <style>
+<style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #FAF6F0;
-            color: #121212;
-            overflow-x: hidden;
+            background-color: #FAF6EF;
+            color: #181716;
         }
-        
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Outfit', sans-serif;
+        }
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #121212;
+            background: #181716;
         }
         ::-webkit-scrollbar-thumb {
-            background: #E65100;
+            background: #E85D04;
             border-radius: 4px;
         }
-
-        /* Mobile Drawer Scrollbar */
-        .custom-drawer-scroll::-webkit-scrollbar {
-            width: 5px;
-        }
-        .custom-drawer-scroll::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 4px;
-        }
-        .custom-drawer-scroll::-webkit-scrollbar-thumb {
-            background: #E65100;
-            border-radius: 4px;
-        }
-
-        /* Prevent scroll lock when drawer is active */
-        body.mobile-menu-open {
-            overflow: hidden !important;
-        }
-
-        /* Pulse animation for CTA phone icon */
+        /* Pulse gentle effect for call buttons */
         @keyframes subtlePulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.03); }
         }
         .animate-subtle-pulse {
-            animation: subtlePulse 2.5s infinite ease-in-out;
+            animation: subtlePulse 3s infinite ease-in-out;
         }
+
+        
+/* Prevent background scrolling when the menu is open */
+body.mobile-menu-open {
+  overflow: hidden !important;
+}
+
+/* Scrollbar styling for the mobile drawer */
+.custom-drawer-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-drawer-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.custom-drawer-scroll::-webkit-scrollbar-thumb {
+  background: #E85D04;
+  border-radius: 4px;
+}
+
+/* Keep the drawer hidden on desktop */
+@media (min-width: 768px) {
+  #mobileDrawer {
+    display: none !important;
+  }
+}
+
     </style>
 </head>
 <body class="antialiased text-brandDark bg-brandCream selection:bg-brandOrange selection:text-white pb-16 md:pb-0">
@@ -268,6 +279,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid lg:grid-cols-12 gap-12 items-center">
                     
+                    <!-- About Image Side -->
                     <div class="lg:col-span-5 order-2 lg:order-1">
                         <div class="relative">
                             <div class="absolute -top-4 -left-4 w-24 h-24 bg-brandOrange/10 rounded-2xl -z-10"></div>
@@ -275,22 +287,642 @@
                             
                             <div class="rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-white">
                                 <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=80" alt="Appetizing Food Served at OMI's" class="w-full h-80 sm:h-96 object-cover">
+                                
+                                <div class="p-6 bg-white border-t border-gray-100">
+                                    <!-- Highlight Pills -->
+                                    <div class="flex items-center justify-between text-center gap-2">
+                                        <div class="flex-1 py-2 px-3 bg-brandCream rounded-xl font-heading font-bold text-sm text-brandDark border border-brandOrange/20">
+                                            <i class="fa-solid fa-leaf text-emerald-600 mr-1"></i> Fresh
+                                        </div>
+                                        <div class="flex-1 py-2 px-3 bg-brandCream rounded-xl font-heading font-bold text-sm text-brandDark border border-brandOrange/20">
+                                            <i class="fa-solid fa-pepper-hot text-brandRed mr-1"></i> Flavorful
+                                        </div>
+                                        <div class="flex-1 py-2 px-3 bg-brandCream rounded-xl font-heading font-bold text-sm text-brandDark border border-brandOrange/20">
+                                            <i class="fa-solid fa-location-dot text-brandOrange mr-1"></i> Local
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="lg:col-span-7 order-1 lg:order-2 space-y-4">
-                        <span class="text-brandOrange font-bold text-sm tracking-widest uppercase">About OMI’s</span>
-                        <h2 class="text-3xl sm:text-4xl font-extrabold text-brandDark">Serving Good Food with Love in Dahisar East</h2>
-                        <p class="text-gray-700 leading-relaxed">
-                            At OMI’s, we focus on delivering delicious taste and quick service for every customer visiting our local food stall in Ashokvan. Stop by for a freshly prepared meal right in your neighborhood.
+                    <!-- About Text Content -->
+                    <div class="lg:col-span-7 order-1 lg:order-2 space-y-6">
+                        <div class="inline-block bg-brandOrange/10 text-brandOrange font-bold text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-lg border border-brandOrange/20">
+                            NEIGHBORHOOD FOOD STALL
+                        </div>
+
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-brandDark leading-tight">
+                            A Local Spot Made for <br class="hidden sm:block">
+                            <span class="text-brandOrange">Good Food & Good Moments</span>
+                        </h2>
+
+                        <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
+                            <strong class="text-brandDark">OMI’s</strong> is your neighborhood food stall in Ashokvan, Dahisar East, serving delicious food for everyday cravings. Whether you're grabbing a quick bite on your way home or looking for something tasty nearby, OMI’s is here to keep things simple, satisfying, and full of flavor.
                         </p>
+
+                        <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                            <div class="p-4 rounded-xl bg-white border border-brandOrange/10 shadow-sm flex items-start gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-brandOrange/10 text-brandOrange flex items-center justify-center shrink-0 text-lg">
+                                    <i class="fa-solid fa-shop"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-heading font-bold text-brandDark text-base">Ashokvan Landmark</h3>
+                                    <p class="text-xs text-gray-600 mt-0.5">Located conveniently at Shop No. 12, Raj Umang 2, Rawalpada.</p>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-white border border-brandOrange/10 shadow-sm flex items-start gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-brandYellow/20 text-brandDark flex items-center justify-center shrink-0 text-lg">
+                                    <i class="fa-solid fa-heart"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-heading font-bold text-brandDark text-base">Made for Cravings</h3>
+                                    <p class="text-xs text-gray-600 mt-0.5">Relaxed stall setup designed for fast, warm local food.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 flex items-center gap-4 border-t border-gray-200">
+                            <a href="tel:08692036867" class="inline-flex items-center gap-2 text-brandOrange font-heading font-bold text-base hover:text-brandOrangeHover group">
+                                <span>Have a query? Call 08692036867</span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
                     </div>
 
                 </div>
             </div>
         </section>
+
+                <!-- MENU SECTION -->
+        <section id="menu" class="py-16 sm:py-24 bg-brandDark text-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+                    <div class="inline-flex items-center gap-2 bg-white/10 text-brandYellow text-xs font-bold px-3.5 py-1.5 rounded-full border border-white/15">
+                        <i class="fa-solid fa-book-open text-brandOrange"></i>
+                        <span>MENU PREVIEW</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-black font-heading text-white">
+                        What Are You <span class="text-brandOrange">Craving?</span>
+                    </h2>
+                    <p class="text-gray-400 text-sm sm:text-base">
+                        Here is a preview layout of what you can expect at OMI’s. Call us directly to ask about today's fresh availability and daily specials!
+                    </p>
+                </div>
+
+                <!-- Category Filter Tabs -->
+                <div id="menuTabs" class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10">
+                    <button data-category="all" class="menu-tab-btn active bg-brandOrange text-white px-5 py-2.5 rounded-xl font-heading font-bold text-sm tracking-wide transition-all shadow-md">
+                        All
+                    </button>
+                    <button data-category="snacks" class="menu-tab-btn bg-white/10 hover:bg-white/20 text-gray-300 px-5 py-2.5 rounded-xl font-heading font-bold text-sm tracking-wide transition-all border border-white/10">
+                        Snacks
+                    </button>
+                    <button data-category="meals" class="menu-tab-btn bg-white/10 hover:bg-white/20 text-gray-300 px-5 py-2.5 rounded-xl font-heading font-bold text-sm tracking-wide transition-all border border-white/10">
+                        Meals
+                    </button>
+                    <button data-category="beverages" class="menu-tab-btn bg-white/10 hover:bg-white/20 text-gray-300 px-5 py-2.5 rounded-xl font-heading font-bold text-sm tracking-wide transition-all border border-white/10">
+                        Beverages
+                    </button>
+                    <button data-category="specials" class="menu-tab-btn bg-white/10 hover:bg-white/20 text-gray-300 px-5 py-2.5 rounded-xl font-heading font-bold text-sm tracking-wide transition-all border border-white/10">
+                        Specials
+                    </button>
+                </div>
+
+                <!-- Menu Cards Grid -->
+                <div id="menuGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Menu Item 1 -->
+                    <div class="menu-card bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-brandOrange/50 transition-all group" data-category="snacks">
+                        <div class="relative h-48 overflow-hidden bg-gray-800">
+                            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80" alt="Crispy Snacks Placeholder" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-90">
+                            <span class="absolute top-3 right-3 bg-brandDark/80 backdrop-blur-md text-brandYellow font-heading font-bold text-xs px-2.5 py-1 rounded-md border border-white/10">
+                                [Menu Preview]
+                            </span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-heading font-bold text-xl text-white">Signature Stall Snack</h3>
+                                <span class="text-brandYellow font-heading font-extrabold text-lg">₹--</span>
+                            </div>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                                Delicious, freshly prepared local street-style snack. Made warm to order at our Dahisar stall.
+                            </p>
+                            <div class="pt-2 flex items-center justify-between border-t border-white/10 text-xs text-gray-400">
+                                <span class="text-brandOrange font-semibold"><i class="fa-solid fa-fire text-xs"></i> Freshly Prepared</span>
+                                <span>Category: Snacks</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Menu Item 2 -->
+                    <div class="menu-card bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-brandOrange/50 transition-all group" data-category="meals">
+                        <div class="relative h-48 overflow-hidden bg-gray-800">
+                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80" alt="Hearty Meal Combo Placeholder" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-90">
+                            <span class="absolute top-3 right-3 bg-brandDark/80 backdrop-blur-md text-brandYellow font-heading font-bold text-xs px-2.5 py-1 rounded-md border border-white/10">
+                                [Menu Preview]
+                            </span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-heading font-bold text-xl text-white">Satisfying Meal Combo</h3>
+                                <span class="text-brandYellow font-heading font-extrabold text-lg">₹--</span>
+                            </div>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                                A fulfilling combo option designed for lunch or dinner hunger. Generous portions with authentic taste.
+                            </p>
+                            <div class="pt-2 flex items-center justify-between border-t border-white/10 text-xs text-gray-400">
+                                <span class="text-brandOrange font-semibold"><i class="fa-solid fa-utensils text-xs"></i> Everyday Meal</span>
+                                <span>Category: Meals</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Menu Item 3 -->
+                    <div class="menu-card bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-brandOrange/50 transition-all group" data-category="beverages">
+                        <div class="relative h-48 overflow-hidden bg-gray-800">
+                            <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80" alt="Refreshing Drink Placeholder" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-90">
+                            <span class="absolute top-3 right-3 bg-brandDark/80 backdrop-blur-md text-brandYellow font-heading font-bold text-xs px-2.5 py-1 rounded-md border border-white/10">
+                                [Menu Preview]
+                            </span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-heading font-bold text-xl text-white">Chilled / Hot Beverage</h3>
+                                <span class="text-brandYellow font-heading font-extrabold text-lg">₹--</span>
+                            </div>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                                The perfect refreshment to pair with your food item. Quick and refreshing options available daily.
+                            </p>
+                            <div class="pt-2 flex items-center justify-between border-t border-white/10 text-xs text-gray-400">
+                                <span class="text-brandOrange font-semibold"><i class="fa-solid fa-glass-water text-xs"></i> Refreshing</span>
+                                <span>Category: Beverages</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Menu Item 4 -->
+                    <div class="menu-card bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-brandOrange/50 transition-all group" data-category="specials">
+                        <div class="relative h-48 overflow-hidden bg-gray-800">
+                            <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=600&q=80" alt="OMI's Daily Special Placeholder" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-90">
+                            <span class="absolute top-3 right-3 bg-brandOrange text-white font-heading font-bold text-xs px-2.5 py-1 rounded-md shadow">
+                                Today's Special
+                            </span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-heading font-bold text-xl text-white">OMI’s Chef Special</h3>
+                                <span class="text-brandYellow font-heading font-extrabold text-lg">₹--</span>
+                            </div>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                                Ask the stall owner about today’s featured dish! Special recipes made with love in Ashokvan.
+                            </p>
+                            <div class="pt-2 flex items-center justify-between border-t border-white/10 text-xs text-gray-400">
+                                <span class="text-brandYellow font-semibold"><i class="fa-solid fa-star text-xs"></i> Local Favorite</span>
+                                <span>Category: Specials</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Menu Item 5 -->
+                    <div class="menu-card bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-brandOrange/50 transition-all group" data-category="snacks">
+                        <div class="relative h-48 overflow-hidden bg-gray-800">
+                            <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80" alt="Quick Bite Street Food Placeholder" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-90">
+                            <span class="absolute top-3 right-3 bg-brandDark/80 backdrop-blur-md text-brandYellow font-heading font-bold text-xs px-2.5 py-1 rounded-md border border-white/10">
+                                [Menu Preview]
+                            </span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-heading font-bold text-xl text-white">Quick Savory Bite</h3>
+                                <span class="text-brandYellow font-heading font-extrabold text-lg">₹--</span>
+                            </div>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                                Perfect for a quick evening tea-time snack or on-the-go hunger bite at Dahisar East.
+                            </p>
+                            <div class="pt-2 flex items-center justify-between border-t border-white/10 text-xs text-gray-400">
+                                <span class="text-brandOrange font-semibold"><i class="fa-solid fa-bolt text-xs"></i> Fast Serve</span>
+                                <span>Category: Snacks</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Menu Item 6 -->
+                    <div class="menu-card bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-brandOrange/50 transition-all group" data-category="meals">
+                        <div class="relative h-48 overflow-hidden bg-gray-800">
+                            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80" alt="Fresh Stall Plate Placeholder" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-90">
+                            <span class="absolute top-3 right-3 bg-brandDark/80 backdrop-blur-md text-brandYellow font-heading font-bold text-xs px-2.5 py-1 rounded-md border border-white/10">
+                                [Menu Preview]
+                            </span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-heading font-bold text-xl text-white">Fresh Hot Meal Plate</h3>
+                                <span class="text-brandYellow font-heading font-extrabold text-lg">₹--</span>
+                            </div>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                                Warm, flavorful main course option cooked fresh daily. Ideal for neighborhood food lovers.
+                            </p>
+                            <div class="pt-2 flex items-center justify-between border-t border-white/10 text-xs text-gray-400">
+                                <span class="text-brandOrange font-semibold"><i class="fa-solid fa-heart text-xs"></i> Hot & Fresh</span>
+                                <span>Category: Meals</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Interactive Call CTA Card inside Menu -->
+                <div class="mt-12 bg-gradient-to-r from-brandOrange to-brandRed rounded-2xl p-8 text-center text-white shadow-2xl relative overflow-hidden">
+                    <div class="relative z-10 max-w-2xl mx-auto space-y-4">
+                        <span class="bg-white/20 text-white font-heading font-bold text-xs uppercase px-3 py-1 rounded-full">
+                            UPDATED DAILY
+                        </span>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold font-heading">
+                            Want to Know What's Available Today?
+                        </h3>
+                        <p class="text-white/90 text-sm sm:text-base">
+                            Call OMI’s directly to check our live menu options, daily specials, and quick takeaway timing.
+                        </p>
+                        <div class="pt-2">
+                            <a href="tel:08692036867" class="inline-flex items-center gap-3 bg-white text-brandDark hover:bg-brandCream px-8 py-4 rounded-xl font-heading font-black text-lg shadow-lg hover:scale-105 transition-all">
+                                <i class="fa-solid fa-phone text-brandOrange"></i>
+                                <span>Call OMI’s: 08692036867</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+                <!-- WHY CHOOSE OMI'S SECTION -->
+        <section id="why-omi" class="py-16 sm:py-24 bg-brandCream relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                    <span class="text-brandOrange font-bold text-xs uppercase tracking-widest bg-brandOrange/10 px-3 py-1 rounded-md border border-brandOrange/20">
+                        THE LOCAL EXPERIENCE
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-brandDark">
+                        Why Stop By <span class="text-brandOrange">OMI’s?</span>
+                    </h2>
+                    <p class="text-gray-600 text-sm sm:text-base">
+                        A friendly neighborhood food spot built around convenience, taste, and genuine local hospitality.
+                    </p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Feature Card 1 -->
+                    <div class="bg-white p-8 rounded-2xl border border-brandOrange/15 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-brandOrange/10 text-brandOrange flex items-center justify-center text-2xl mb-6 group-hover:bg-brandOrange group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-map-pin"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-brandDark mb-2">Local & Convenient</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            A neighborhood food spot in Ashokvan, Dahisar East, easy to drop by anytime.
+                        </p>
+                    </div>
+
+                    <!-- Feature Card 2 -->
+                    <div class="bg-white p-8 rounded-2xl border border-brandOrange/15 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-brandYellow/30 text-brandDark flex items-center justify-center text-2xl mb-6 group-hover:bg-brandYellow transition-colors">
+                            <i class="fa-solid fa-utensils"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-brandDark mb-2">Everyday Cravings</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            A simple, hassle-free place to grab something tasty whenever you're hungry.
+                        </p>
+                    </div>
+
+                    <!-- Feature Card 3 -->
+                    <div class="bg-white p-8 rounded-2xl border border-brandOrange/15 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-brandRed/10 text-brandRed flex items-center justify-center text-2xl mb-6 group-hover:bg-brandRed group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-face-smile"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-brandDark mb-2">Friendly & Casual</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Enjoy a relaxed, welcoming local food-stall atmosphere every time you visit.
+                        </p>
+                    </div>
+
+                    <!-- Feature Card 4 -->
+                    <div class="bg-white p-8 rounded-2xl border border-brandOrange/15 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-brandDark/10 text-brandDark flex items-center justify-center text-2xl mb-6 group-hover:bg-brandDark group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-brandDark mb-2">Easy to Find</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Conveniently located at Shop No. 12, Raj Umang 2 in Rawalpada, Dahisar East.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+                <!-- FOOD VISUAL SHOWCASE SECTION -->
+        <section class="py-16 bg-brandDark text-white overflow-hidden relative border-y border-white/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white">
+                        Come Hungry. <span class="text-brandYellow">Leave Happy.</span>
+                    </h2>
+                    <p class="text-gray-400 text-sm sm:text-base">
+                        Your next food stop is closer than you think.
+                    </p>
+                </div>
+
+                <!-- Food Visual Photo Strip Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="rounded-2xl overflow-hidden h-48 sm:h-64 relative group border border-white/10">
+                        <img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=600&q=80" alt="Food Stall Dish Visual 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brandDark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex items-end">
+                            <p class="text-xs font-heading font-bold text-brandYellow">Fresh Street Flavors</p>
+                        </div>
+                    </div>
+
+                    <div class="rounded-2xl overflow-hidden h-48 sm:h-64 relative group border border-white/10">
+                        <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=600&q=80" alt="Food Stall Dish Visual 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brandDark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex items-end">
+                            <p class="text-xs font-heading font-bold text-brandYellow">Warm & Satisfying</p>
+                        </div>
+                    </div>
+
+                    <div class="rounded-2xl overflow-hidden h-48 sm:h-64 relative group border border-white/10">
+                        <img src="https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?auto=format&fit=crop&w=600&q=80" alt="Food Stall Dish Visual 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brandDark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex items-end">
+                            <p class="text-xs font-heading font-bold text-brandYellow">Ashokvan Favorite</p>
+                        </div>
+                    </div>
+
+                    <div class="rounded-2xl overflow-hidden h-48 sm:h-64 relative group border border-white/10">
+                        <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=600&q=80" alt="Food Stall Dish Visual 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brandDark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex items-end">
+                            <p class="text-xs font-heading font-bold text-brandYellow">Everyday Craving</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+                <!-- FIND US SECTION -->
+        <section id="find-us" class="py-16 sm:py-24 bg-brandCream relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Location Info Column -->
+                    <div class="lg:col-span-5 space-y-6">
+                        
+                        <div class="inline-flex items-center gap-2 bg-brandOrange/10 text-brandOrange font-bold text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-lg border border-brandOrange/20">
+                            <i class="fa-solid fa-location-crosshairs"></i>
+                            <span>LOCATION & DIRECTIONS</span>
+                        </div>
+
+                        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-brandDark">
+                            Find <span class="text-brandOrange">OMI’s</span>
+                        </h2>
+
+                        <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
+                            Looking for our food stall? We are conveniently situated in the vibrant neighborhood of Rawalpada, Dahisar East.
+                        </p>
+
+                        <!-- Address Box -->
+                        <div class="bg-white p-6 rounded-2xl border border-brandOrange/20 shadow-md space-y-4">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-brandOrange text-white flex items-center justify-center shrink-0 text-xl shadow-md">
+                                    <i class="fa-solid fa-store"></i>
+                                </div>
+                                <div class="space-y-1">
+                                    <h3 class="font-heading font-bold text-lg text-brandDark">OMI’s Food Stall</h3>
+                                    <p class="text-gray-700 text-sm leading-snug">
+                                        Shop No. 12, Raj Umang 2, Ashokvan, Rawalpada, Dahisar East, Mumbai, Maharashtra 400068
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+                                <span>📍 Dahisar East, Mumbai</span>
+                                <span class="text-emerald-600 font-semibold"><i class="fa-solid fa-circle text-[8px] mr-1"></i> Easy Walk-in</span>
+                            </div>
+                        </div>
+
+                        <!-- Directions CTA Button -->
+                        <div class="pt-2">
+                            <a href="https://maps.app.goo.gl/2s8ebXXsrwsgEz3j6" target="_blank" rel="noopener noreferrer" class="w-full bg-brandOrange hover:bg-brandOrangeHover text-white px-8 py-4 rounded-xl font-heading font-bold text-base shadow-lg shadow-brandOrange/25 hover:shadow-xl transition-all flex items-center justify-center gap-3">
+                                <i class="fa-solid fa-diamond-turn-right text-lg"></i>
+                                <span>Get Directions on Google Maps</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- Map Container Column -->
+                    <div class="lg:col-span-7">
+                        <div class="rounded-3xl overflow-hidden border-4 border-white shadow-2xl bg-brandDark relative">
+                            <!-- Map Header Strip -->
+                            <div class="bg-brandDark text-white p-4 flex items-center justify-between border-b border-white/10 text-xs">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-3 h-3 rounded-full bg-brandOrange"></span>
+                                    <span class="font-heading font-bold">Google Maps Location Preview</span>
+                                </div>
+                                <a href="https://maps.app.goo.gl/2s8ebXXsrwsgEz3j6" target="_blank" rel="noopener noreferrer" class="text-brandYellow hover:underline font-semibold">
+                                    Open Full Map <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1"></i>
+                                </a>
+                            </div>
+
+                            <!-- Map Iframe with fallback container -->
+                            <div class="relative h-96 w-full bg-gray-900">
+                                <iframe 
+                                    title="OMI's Food Stall Google Map Location"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.142491142279!2d72.863118!3d19.232356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b0e123456789%3A0xabcdef1234567890!2sDahisar%20East%2C%20Mumbai!5e0!3m2!1sen!2sin!4v1234567890" 
+                                    width="100%" 
+                                    height="100%" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    class="w-full h-full">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+                <!-- CONTACT SECTION -->
+        <section id="contact" class="py-16 sm:py-24 bg-brandDark text-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="max-w-4xl mx-auto text-center space-y-8">
+                    
+                    <div class="inline-flex items-center gap-2 bg-brandOrange/20 text-brandYellow text-xs font-bold px-4 py-1.5 rounded-full border border-brandOrange/30">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        <span>DIRECT CONTACT</span>
+                    </div>
+
+                    <h2 class="text-3xl sm:text-5xl font-black font-heading text-white">
+                        Got a Food Craving? <span class="text-brandOrange">Let's Talk.</span>
+                    </h2>
+
+                    <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+                        Have a question about what's cooking today or want to check takeaway timing? Get in touch directly with OMI’s food stall.
+                    </p>
+
+                    <!-- Large Phone Call Hero Card -->
+                    <div class="bg-gradient-to-b from-white/10 to-white/5 border border-white/15 p-8 sm:p-12 rounded-3xl shadow-2xl max-w-2xl mx-auto space-y-6">
+                        
+                        <div class="w-20 h-20 bg-brandOrange text-white rounded-full flex items-center justify-center mx-auto text-3xl shadow-lg shadow-brandOrange/40 animate-subtle-pulse">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+
+                        <div>
+                            <p class="text-gray-400 text-xs uppercase tracking-widest font-semibold mb-1">CALL US DIRECTLY</p>
+                            <a href="tel:08692036867" class="text-3xl sm:text-5xl font-black font-heading text-brandYellow hover:text-white transition-colors tracking-tight">
+                                08692036867
+                            </a>
+                        </div>
+
+                        <p class="text-xs text-gray-400">
+                            Tap the phone number or button below to start a quick call.
+                        </p>
+
+                        <div class="pt-2">
+                            <a href="tel:08692036867" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-brandOrange hover:bg-brandOrangeHover text-white px-10 py-4 rounded-xl font-heading font-extrabold text-lg shadow-xl hover:scale-105 transition-all">
+                                <i class="fa-solid fa-phone"></i>
+                                <span>Call OMI’s Now</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+                <!-- CALL-TO-ACTION BANNER -->
+        <section class="bg-gradient-to-r from-brandOrange via-brandOrangeHover to-brandRed py-12 text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+                    <div>
+                        <h2 class="text-3xl sm:text-4xl font-black font-heading text-white">
+                            Your Next Bite Is Waiting.
+                        </h2>
+                        <p class="text-white/90 text-sm sm:text-base mt-1">
+                            Visit OMI’s in Dahisar East and satisfy your craving today.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+                        <a href="tel:08692036867" class="bg-brandDark hover:bg-black text-white px-8 py-3.5 rounded-xl font-heading font-bold text-base shadow-lg transition-all text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-phone text-brandYellow"></i>
+                            <span>Call Now</span>
+                        </a>
+                        <a href="https://maps.app.goo.gl/2s8ebXXsrwsgEz3j6" target="_blank" rel="noopener noreferrer" class="bg-white text-brandDark hover:bg-brandCream px-8 py-3.5 rounded-xl font-heading font-bold text-base shadow-lg transition-all text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-diamond-turn-right text-brandOrange"></i>
+                            <span>Get Directions</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
     </main>
+
+
+        <!-- FOOTER -->
+    <footer class="bg-brandDark text-white border-t border-white/10 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+                
+                <!-- Footer Brand Column -->
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-2">
+                        <div class="w-9 h-9 rounded-lg bg-brandOrange flex items-center justify-center text-white font-heading font-black text-lg">
+                            O
+                        </div>
+                        <span class="font-heading font-extrabold text-2xl tracking-wider text-white">OMI’s</span>
+                        <span class="text-xs bg-brandOrange/20 text-brandOrange px-2 py-0.5 rounded font-bold uppercase">Food Stall</span>
+                    </div>
+                    <p class="text-gray-400 text-sm max-w-sm leading-relaxed">
+                        Your local food stall in Ashokvan, Dahisar East. Serving good food for everyday cravings.
+                    </p>
+                    <div class="text-xs text-gray-400 space-y-1">
+                        <p class="font-semibold text-gray-300">📍 Address:</p>
+                        <p>Shop No. 12, Raj Umang 2, Ashokvan, Rawalpada, Dahisar East, Mumbai, Maharashtra 400068</p>
+                    </div>
+                </div>
+
+                <!-- Quick Navigation Links -->
+                <div class="md:col-span-3 space-y-3">
+                    <h3 class="font-heading font-bold text-base text-brandYellow uppercase tracking-wider">Quick Links</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">About OMI’s</a></li>
+                        <li><a href="#menu" class="hover:text-white transition-colors">Menu Preview</a></li>
+                        <li><a href="#why-omi" class="hover:text-white transition-colors">Why OMI’s</a></li>
+                        <li><a href="#find-us" class="hover:text-white transition-colors">Find Us</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Summary -->
+                <div class="md:col-span-4 space-y-3">
+                    <h3 class="font-heading font-bold text-base text-brandYellow uppercase tracking-wider">Phone Contact</h3>
+                    <p class="text-xs text-gray-400">Call us directly for orders, walk-ins, and menu inquiries:</p>
+                    <a href="tel:08692036867" class="inline-flex items-center gap-2 text-brandOrange font-heading font-extrabold text-xl hover:text-brandYellow transition-colors">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>08692036867</span>
+                    </a>
+                    <div class="pt-2">
+                        <a href="https://maps.app.goo.gl/2s8ebXXsrwsgEz3j6" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs text-gray-300 hover:text-white underline">
+                            <i class="fa-solid fa-location-dot text-brandOrange"></i>
+                            <span>View Google Business Profile</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom Copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 gap-4">
+                <p>© 2026 OMI’s. All Rights Reserved.</p>
+                <p>Designed for OMI’s Food Stall, Ashokvan, Dahisar East, Mumbai.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY MOBILE ACTION BAR (Only visible on small screens) -->
+    <div class="fixed bottom-0 inset-x-0 bg-brandDark/95 backdrop-blur-md border-t border-white/10 p-3 z-40 md:hidden flex items-center justify-around gap-2 shadow-2xl">
+        <a href="#menu" class="flex-1 py-2 px-3 bg-white/10 text-white rounded-xl text-center text-xs font-heading font-bold flex flex-col items-center justify-center gap-1 active:bg-white/20">
+            <i class="fa-solid fa-utensils text-brandYellow"></i>
+            <span>Menu</span>
+        </a>
+        <a href="tel:08692036867" class="flex-1 py-2.5 px-3 bg-brandOrange text-white rounded-xl text-center text-xs font-heading font-bold flex flex-col items-center justify-center gap-1 shadow-lg active:scale-95 transition-transform">
+            <i class="fa-solid fa-phone"></i>
+            <span>Call Now</span>
+        </a>
+        <a href="https://maps.app.goo.gl/2s8ebXXsrwsgEz3j6" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 px-3 bg-white/10 text-white rounded-xl text-center text-xs font-heading font-bold flex flex-col items-center justify-center gap-1 active:bg-white/20">
+            <i class="fa-solid fa-diamond-turn-right text-brandYellow"></i>
+            <span>Directions</span>
+        </a>
+    </div>
 
     <!-- Mobile Drawer Script -->
     <script>
